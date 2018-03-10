@@ -1,0 +1,54 @@
+---
+title: "Slide with Plotly Example  for StockMarkets"
+author: "Aysegul Sonmez"
+date: "March 10, 2018"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Many thanks to all of you
+
+  -   Brian Caffo 
+  
+  -   Jeff Leek
+  
+  -   Roger D.Pend 
+
+
+
+
+
+  
+Please reach my projects with the following link.
+
+
+
+
+<https://github.com/Aysegulzemnos/DataProductsPresentationwithPlotly>
+
+
+## Slide with Plot
+
+```{r,echo=FALSE}
+
+library(plotly)
+library(tidyr)
+library(dplyr)
+
+data("EuStockMarkets")
+ stocks <- as.data.frame(EuStockMarkets) %>%
+  gather(index, price) %>%
+  mutate(time = rep(time(EuStockMarkets), 4))
+
+ plot_ly(stocks, x = ~time, y = ~price, color = ~index )
+
+```
+
+
+
