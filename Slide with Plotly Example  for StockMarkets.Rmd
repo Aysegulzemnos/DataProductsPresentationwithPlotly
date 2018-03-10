@@ -7,6 +7,7 @@ output:
   ioslides_presentation: default
 ---
 
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
@@ -32,15 +33,13 @@ Please reach my projects with the following link.
 
 <https://github.com/Aysegulzemnos/DataProductsPresentationwithPlotly>
 
-
 ## Slide with Plot
 
-```{r,echo=FALSE}
-
+```{r,plotly=TRUE,echo=FALSE,message=FALSE}
+suppressPackageStartupMessages(library(plotly))
 library(plotly)
 library(tidyr)
 library(dplyr)
-
 data("EuStockMarkets")
  stocks <- as.data.frame(EuStockMarkets) %>%
   gather(index, price) %>%
